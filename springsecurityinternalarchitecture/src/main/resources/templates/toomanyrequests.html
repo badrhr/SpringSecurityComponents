@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>✅ Public Page [Spring Sec: The Good Parts]</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+</head>
+<body>
+<h1 class="error-message" >Too Many Requests</h1>
+<p></p>
+<p class="warning-message">You have made too many requests. Please try again later.</p>
+<p class="warning-message">Please wait [60 seconds] seconds before trying again.</p>
+
+<a href="/private" class="btn">Go to private</a>
+
+
+<p id="countdown"></p>
+
+<script>
+    function startTimer(duration, display) {
+        var timer = duration, minutes, seconds;
+        setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = minutes + ":" + seconds;
+
+            if (--timer < 0) {
+                timer = duration;
+            }
+        }, 1000);
+    }
+
+    window.onload = function () {
+        var duration = 60; // Adjust the duration as needed (in seconds)
+        var display = document.getElementById("countdown");
+        startTimer(duration, display);
+    };
+</script>
+
+</body>
+</html>
